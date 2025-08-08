@@ -16,7 +16,10 @@ cp quickfix/src/C++/*.cpp quickfix-python/C++
 cp -R quickfix/src/C++/double-conversion quickfix-python/C++
 cp quickfix/src/python3/QuickfixPython.cpp quickfix-python/C++
 cp quickfix/src/python3/QuickfixPython.h quickfix-python/C++
-
+#cp quickfix/src/swig/SSLStubs.h quickfix-python/C++
+cp quickfix/src/swig/MySQLStubs.h quickfix-python/C++
+cp quickfix/src/swig/Utility2.h quickfix-python/C++
+cp quickfix/src/swig/PostgreSQLStubs.h quickfix-python/C++
 cp quickfix/spec/FIX*.xml quickfix-python/spec
 
 touch quickfix-python/C++/config.h
@@ -25,4 +28,4 @@ rm -f quickfix-python/C++/stdafx.*
 
 pushd quickfix-python
 python setup.py sdist
-PYTHONWARNINGS="ignore" twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+#PYTHONWARNINGS="ignore" twine upload --repository-url https://test.pypi.org/legacy/ dist/*
