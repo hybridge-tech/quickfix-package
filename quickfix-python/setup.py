@@ -1,9 +1,11 @@
-from distutils.core import setup
-from distutils.core import Extension
-from distutils.command.install import install
-from distutils.command.build import build
-from distutils.command.build_ext import build_ext
-from distutils.sysconfig import get_config_vars
+from setuptools import setup, Extension
+from setuptools.command.build_ext import build_ext
+#from distutils.core import setup
+#from distutils.core import Extension
+#from distutils.command.install import install
+#from distutils.command.build import build
+#from distutils.command.build_ext import build_ext
+#from distutils.sysconfig import get_config_vars
 
 import subprocess
 import shutil
@@ -71,7 +73,7 @@ setup(
     license=license,
     include_dirs=[
         'C++',
-        '/usr/include',
+        'include',
         '/usr/include/x86_64-linux-gnu'
     ],
     cmdclass={'build_ext': build_ext_subclass},
@@ -81,6 +83,7 @@ setup(
             glob.glob('C++/*.cpp'),
             include_dirs=[
                 'C++',
+                'include',
                 '/usr/include',
                 '/usr/include/x86_64-linux-gnu'
             ],
